@@ -1,0 +1,32 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: make
+      run: make
+    - name: check files 
+      if: always()
+      run: ls 
+    - name: copy test script to student dir
+      if: always()
+      run: cp /tmp/testscript/A3.py .
+    - name: run test script
+      if: always()
+      run: python3 A3.py
+    - name: remove testscript from student dir
+      if: always()
+      run: rm -f A3.py
+    - name: check grade files
+      if: always()
+      run: cat Student_grade.txt

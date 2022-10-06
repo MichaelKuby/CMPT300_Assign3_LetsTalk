@@ -1,0 +1,2 @@
+Welcome to Lets-Talk! Please type your messages now.
+this is a very long character which is passed from one chat box to another. If successfull, it give full marks!!!
